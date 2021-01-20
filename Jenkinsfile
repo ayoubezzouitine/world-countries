@@ -1,13 +1,14 @@
-    
-   node {
-    stage('git stage'){
-      git 'https://github.com/ayoubezzouitine/world-countries'
+node {  
+    stage('GIT SCM'){
+          git 'https://github.com/ayoubezzouitine/world-countries'
     }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn -B'
-            }
-        }
+    stage('Build') { 
+       echo 'hello Build'
+    }
+    stage('Test') { 
+         echo 'hello Test'
+    }
+    stage('Deploy') { 
+          echo 'hello Deploy'
     }
 }
