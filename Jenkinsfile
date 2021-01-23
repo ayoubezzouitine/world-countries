@@ -1,14 +1,11 @@
-node {  
-    stage('GIT SCM'){
-          git 'https://github.com/ayoubezzouitine/world-countries'
-    }
-    stage('Build') { 
-       echo 'hello Build'
-    }
-    stage('Test') { 
-         echo 'hello Test'
-    }
-    stage('Deploy') { 
-          echo 'hello Deploy'
+pipeline {
+    agent { docker { image 'maven:3.3.3' } }
+    stages {
+        stage('build') {
+           steps {
+                sh 'ls && pwd'
+                sh 'mvn -B -DskipTests clean package' 
+            }
+        }
     }
 }
